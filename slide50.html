@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reception of Gaudium et Spes</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">Reception of Gaudium et Spes</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Immediate Impact:</strong> "Gaudium et Spes was widely acclaimed as a landmark in the Church's engagement with the modern world"</div>
+                
+                <div class="bullet-point">• <strong>Diverse Reactions:</strong> Enthusiastic reception by many, caution from others concerned about excessive accommodation</div>
+                
+                <div class="bullet-point">• <strong>Magisterial Development:</strong> Themes developed in subsequent papal teaching</div>
+                
+                <div class="bullet-point">• <strong>Practical Implementation:</strong> Inspired new forms of Catholic social engagement</div>
+                
+                <div class="bullet-point">• <strong>Ongoing Relevance:</strong> Continues to shape the Church's approach to contemporary issues</div>
+                
+                <div class="quote">"The joys and the hopes, the griefs and the anxieties of the men of this age, especially those who are poor or in any way afflicted, these are the joys and hopes, the griefs and anxieties of the followers of Christ. Indeed, nothing genuinely human fails to raise an echo in their hearts." (Opening lines of Gaudium et Spes)</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="documentInfluenceChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 50 of 55</div>
+    </div>
+    
+    <script>
+        // Chart showing influence of Gaudium et Spes on subsequent Church documents
+        const ctx = document.getElementById('documentInfluenceChart').getContext('2d');
+        
+        // Create a horizontal bar chart
+        const documentInfluenceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Populorum Progressio (1967)',
+                    'Evangelii Nuntiandi (1975)',
+                    'Laborem Exercens (1981)',
+                    'Centesimus Annus (1991)',
+                    'Evangelium Vitae (1995)',
+                    'Deus Caritas Est (2005)',
+                    'Caritas in Veritate (2009)',
+                    'Laudato Si\' (2015)',
+                    'Fratelli Tutti (2020)'
+                ],
+                datasets: [{
+                    label: 'Influence of Gaudium et Spes',
+                    data: [95, 85, 80, 75, 70, 65, 80, 85, 90],
+                    backgroundColor: [
+                        'rgba(0, 51, 102, 0.8)',
+                        'rgba(0, 71, 122, 0.8)',
+                        'rgba(0, 91, 142, 0.8)',
+                        'rgba(0, 111, 162, 0.8)',
+                        'rgba(0, 131, 182, 0.8)',
+                        'rgba(0, 151, 202, 0.8)',
+                        'rgba(0, 171, 222, 0.8)',
+                        'rgba(0, 191, 242, 0.8)',
+                        'rgba(0, 211, 255, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 51, 102, 1)',
+                        'rgba(0, 71, 122, 1)',
+                        'rgba(0, 91, 142, 1)',
+                        'rgba(0, 111, 162, 1)',
+                        'rgba(0, 131, 182, 1)',
+                        'rgba(0, 151, 202, 1)',
+                        'rgba(0, 171, 222, 1)',
+                        'rgba(0, 191, 242, 1)',
+                        'rgba(0, 211, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Degree of Influence'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Subsequent Church Documents'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Influence of Gaudium et Spes on Subsequent Church Documents',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const tooltips = {
+                                    'Populorum Progressio (1967)': 'Development of peoples',
+                                    'Evangelii Nuntiandi (1975)': 'Evangelization in the modern world',
+                                    'Laborem Exercens (1981)': 'Human work',
+                                    'Centesimus Annus (1991)': 'Social teaching after communism',
+                                    'Evangelium Vitae (1995)': 'Human life and dignity',
+                                    'Deus Caritas Est (2005)': 'Christian love',
+                                    'Caritas in Veritate (2009)': 'Integral human development',
+                                    'Laudato Si\' (2015)': 'Care for our common home',
+                                    'Fratelli Tutti (2020)': 'Fraternity and social friendship'
+                                };
+                                
+                                return tooltips[context.label] + ': ' + context.raw + '%';
+                            }
+                        }
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>
+

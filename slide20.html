@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooperation for the Common Good</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .diagram-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .diagram {
+            border: 2px solid #003366;
+            border-radius: 10px;
+            padding: 20px;
+            height: 400px;
+        }
+        .diagram-title {
+            text-align: center;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .venn-diagram {
+            position: relative;
+            height: 350px;
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+        }
+        .personal-good {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 51, 102, 0.7);
+            top: 50px;
+            left: 50px;
+        }
+        .common-good {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 180, 216, 0.7);
+            top: 50px;
+            right: 50px;
+        }
+        .overlap {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(76, 114, 176, 0.8);
+            top: 100px;
+            left: 150px;
+            z-index: 10;
+        }
+        .arrow {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+        .arrow-left {
+            border-right: 20px solid rgba(0, 51, 102, 0.7);
+            left: 30px;
+            top: 150px;
+        }
+        .arrow-right {
+            border-left: 20px solid rgba(0, 180, 216, 0.7);
+            right: 30px;
+            top: 150px;
+        }
+        .label {
+            position: absolute;
+            font-size: 14px;
+            font-weight: normal;
+            width: 150px;
+            text-align: center;
+        }
+        .label-personal {
+            top: 260px;
+            left: 75px;
+        }
+        .label-common {
+            top: 260px;
+            right: 75px;
+        }
+        .label-overlap {
+            top: 210px;
+            left: 150px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">Cooperation for the Common Good</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Cooperative Call:</strong> "All men are called to cooperate with one another in building up the human community, and in promoting the common good"</div>
+                
+                <div class="bullet-point">• <strong>Common Good Defined:</strong> "The sum total of social conditions which allow people, either as groups or as individuals, to reach their fulfillment more fully and more easily"</div>
+                
+                <div class="bullet-point">• <strong>Balance Required:</strong> Harmonizing individual rights with social responsibilities</div>
+                
+                <div class="bullet-point">• <strong>Subsidiarity:</strong> Decisions should be made at the lowest appropriate level</div>
+                
+                <div class="bullet-point">• <strong>Participation:</strong> All members of society should contribute according to their abilities</div>
+                
+                <div class="quote">"The common good embraces the sum of those conditions of social life by which individuals, families, and groups can achieve their own fulfillment in a relatively thorough and ready way."</div>
+            </div>
+            
+            <div class="diagram-content">
+                <div class="diagram">
+                    <div class="diagram-title">The Relationship Between Personal Good and Common Good</div>
+                    
+                    <div class="venn-diagram">
+                        <div class="arrow arrow-left"></div>
+                        <div class="circle personal-good">Personal Good</div>
+                        <div class="label label-personal">Individual rights, freedoms, and fulfillment</div>
+                        
+                        <div class="circle overlap">Harmony</div>
+                        <div class="label label-overlap">Authentic human development</div>
+                        
+                        <div class="arrow arrow-right"></div>
+                        <div class="circle common-good">Common Good</div>
+                        <div class="label label-common">Social conditions for human flourishing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 20 of 55</div>
+    </div>
+</body>
+</html>
+

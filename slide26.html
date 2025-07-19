@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light to the Nations</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">Light to the Nations</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Prophetic Mission:</strong> "The Church is called to be a light to the nations, and to proclaim the Gospel to all men"</div>
+                
+                <div class="bullet-point">• <strong>Biblical Roots:</strong> Draws on Isaiah's prophecy of Israel as "a light to the nations" (Isaiah 49:6)</div>
+                
+                <div class="bullet-point">• <strong>Universal Proclamation:</strong> The Gospel message is for all people, not just Christians</div>
+                
+                <div class="bullet-point">• <strong>Witness in the World:</strong> The Church bears witness to Christ through both word and action</div>
+                
+                <div class="bullet-point">• <strong>Transformative Presence:</strong> Called to transform culture and society through Gospel values</div>
+                
+                <div class="quote">"The Church, sent to all peoples of every time and place, is not bound exclusively and indissolubly to any race or nation, any particular way of life or any customary way of life recent or ancient. Faithful to her own tradition and at the same time conscious of her universal mission, she can enter into communion with the various civilizations, to their enrichment and the enrichment of the Church herself."</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="biblicalImagesChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 26 of 55</div>
+    </div>
+    
+    <script>
+        // Chart showing biblical images of the Church's mission
+        const ctx = document.getElementById('biblicalImagesChart').getContext('2d');
+        
+        // Create a radar chart
+        const biblicalImagesChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    'Light to the Nations\n(Isaiah 49:6)',
+                    'Salt of the Earth\n(Matthew 5:13)',
+                    'City on a Hill\n(Matthew 5:14)',
+                    'Leaven in Dough\n(Matthew 13:33)',
+                    'Vine and Branches\n(John 15:5)',
+                    'Body of Christ\n(1 Cor 12:27)',
+                    'Pillar of Truth\n(1 Tim 3:15)'
+                ],
+                datasets: [{
+                    label: 'Emphasis in Gaudium et Spes',
+                    data: [95, 85, 80, 75, 70, 90, 65],
+                    backgroundColor: 'rgba(0, 51, 102, 0.2)',
+                    borderColor: 'rgba(0, 51, 102, 0.8)',
+                    pointBackgroundColor: 'rgba(0, 51, 102, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(0, 51, 102, 1)'
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Biblical Images of the Church\'s Mission',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const tooltips = {
+                                    'Light to the Nations\n(Isaiah 49:6)': 'Illuminating the world with truth',
+                                    'Salt of the Earth\n(Matthew 5:13)': 'Preserving and flavoring society',
+                                    'City on a Hill\n(Matthew 5:14)': 'Visible witness to all',
+                                    'Leaven in Dough\n(Matthew 13:33)': 'Transforming culture from within',
+                                    'Vine and Branches\n(John 15:5)': 'Connected to Christ, bearing fruit',
+                                    'Body of Christ\n(1 Cor 12:27)': 'Continuing Christ\'s presence',
+                                    'Pillar of Truth\n(1 Tim 3:15)': 'Supporting and proclaiming truth'
+                                };
+                                
+                                return tooltips[context.label] + ': ' + context.raw + '%';
+                            }
+                        }
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>
+

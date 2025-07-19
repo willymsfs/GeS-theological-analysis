@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church and State</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .diagram-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .diagram {
+            border: 2px solid #003366;
+            border-radius: 10px;
+            padding: 20px;
+            height: 400px;
+        }
+        .diagram-title {
+            text-align: center;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .models-container {
+            display: flex;
+            flex-direction: column;
+            height: 350px;
+        }
+        .model {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .model-title {
+            width: 30%;
+            font-weight: bold;
+            color: #003366;
+            text-align: right;
+            padding-right: 15px;
+        }
+        .model-diagram {
+            width: 30%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .model-description {
+            width: 40%;
+            font-size: 14px;
+            padding-left: 15px;
+        }
+        .circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            margin: 0 5px;
+        }
+        .church-circle {
+            background-color: #003366;
+        }
+        .state-circle {
+            background-color: #00b4d8;
+        }
+        .overlap {
+            position: relative;
+        }
+        .overlap .church-circle {
+            position: absolute;
+            left: 0;
+            z-index: 1;
+        }
+        .overlap .state-circle {
+            position: absolute;
+            left: 25px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">Church and State</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Distinct Spheres:</strong> "The Church and the political community are autonomous and independent of each other in their own fields"</div>
+                
+                <div class="bullet-point">• <strong>Common Service:</strong> Both serve the personal and social vocation of the same human beings</div>
+                
+                <div class="bullet-point">• <strong>Cooperation:</strong> Church and state should cooperate for the common good</div>
+                
+                <div class="bullet-point">• <strong>Religious Freedom:</strong> The state must respect religious liberty</div>
+                
+                <div class="bullet-point">• <strong>Moral Voice:</strong> The Church has the right and duty to make moral judgments on political matters when fundamental rights or salvation are at stake</div>
+                
+                <div class="quote">"The Church and the political community in their own fields are autonomous and independent from each other. Yet both, under different titles, are devoted to the personal and social vocation of the same men. The more that both foster sounder cooperation between themselves with due consideration for the circumstances of time and place, the more effective will their service be exercised for the good of all."</div>
+            </div>
+            
+            <div class="diagram-content">
+                <div class="diagram">
+                    <div class="diagram-title">Models of Church-State Relations</div>
+                    
+                    <div class="models-container">
+                        <div class="model">
+                            <div class="model-title">Theocracy</div>
+                            <div class="model-diagram">
+                                <div class="circle church-circle">C</div>
+                                <div class="circle state-circle" style="opacity: 0.5;">S</div>
+                            </div>
+                            <div class="model-description">Church controls state; religious law is civil law</div>
+                        </div>
+                        
+                        <div class="model">
+                            <div class="model-title">State Church</div>
+                            <div class="model-diagram">
+                                <div class="circle church-circle" style="opacity: 0.5;">C</div>
+                                <div class="circle state-circle">S</div>
+                            </div>
+                            <div class="model-description">State controls church; religion serves political ends</div>
+                        </div>
+                        
+                        <div class="model">
+                            <div class="model-title">Strict Separation</div>
+                            <div class="model-diagram">
+                                <div class="circle church-circle">C</div>
+                                <div style="margin: 0 20px;">||</div>
+                                <div class="circle state-circle">S</div>
+                            </div>
+                            <div class="model-description">Complete separation with minimal interaction</div>
+                        </div>
+                        
+                        <div class="model">
+                            <div class="model-title">Hostile Separation</div>
+                            <div class="model-diagram">
+                                <div class="circle church-circle">C</div>
+                                <div style="margin: 0 10px;">⚔️</div>
+                                <div class="circle state-circle">S</div>
+                            </div>
+                            <div class="model-description">State actively opposes religious influence</div>
+                        </div>
+                        
+                        <div class="model">
+                            <div class="model-title">Healthy Autonomy</div>
+                            <div class="model-diagram overlap">
+                                <div class="circle church-circle">C</div>
+                                <div class="circle state-circle">S</div>
+                            </div>
+                            <div class="model-description">Distinct spheres with cooperation for common good</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 39 of 55</div>
+    </div>
+</body>
+</html>
+

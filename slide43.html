@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population Growth</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">Population Growth</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Demographic Challenge:</strong> "Many nations face challenges related to population growth"</div>
+                
+                <div class="bullet-point">• <strong>Balanced Approach:</strong> Need for economic development alongside demographic policies</div>
+                
+                <div class="bullet-point">• <strong>Human Dignity:</strong> Population policies must respect human rights and dignity</div>
+                
+                <div class="bullet-point">• <strong>Moral Methods:</strong> Rejection of methods contrary to moral law</div>
+                
+                <div class="bullet-point">• <strong>Education:</strong> Importance of education about responsible parenthood</div>
+                
+                <div class="quote">"Many are deeply worried by the problem of population growth, whether on a world scale or in the poorer nations. They fear that overpopulation will cause a decrease in world resources and a lowering of the standard of living. Hence, in many countries the public authorities have initiated programs to promote a proper regulation of births. The Council realizes that this involves serious difficulties and problems."</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="populationApproachesChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 43 of 55</div>
+    </div>
+    
+    <script>
+        // Chart comparing approaches to population issues
+        const ctx = document.getElementById('populationApproachesChart').getContext('2d');
+        
+        // Create a horizontal bar chart
+        const populationApproachesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Coercive Population Control',
+                    'Contraceptive-Only Approach',
+                    'Development-Only Approach',
+                    'Catholic Integral Approach'
+                ],
+                datasets: [
+                    {
+                        label: 'Human Dignity',
+                        data: [10, 50, 70, 95],
+                        backgroundColor: 'rgba(0, 51, 102, 0.8)',
+                    },
+                    {
+                        label: 'Effectiveness',
+                        data: [60, 65, 75, 85],
+                        backgroundColor: 'rgba(0, 131, 182, 0.8)',
+                    },
+                    {
+                        label: 'Moral Acceptability',
+                        data: [5, 30, 80, 95],
+                        backgroundColor: 'rgba(0, 180, 216, 0.8)',
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Rating (0-100)'
+                        },
+                        stacked: false
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Approaches'
+                        },
+                        stacked: false
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Comparing Approaches to Population Issues',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.dataset.label || '';
+                                const value = context.raw || 0;
+                                return label + ': ' + value + '/100';
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>
+

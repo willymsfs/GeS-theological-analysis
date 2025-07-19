@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Value of Human Work</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">The Value of Human Work</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Divine Participation:</strong> "Man is called to work, and to transform the world through his labor"</div>
+                
+                <div class="bullet-point">• <strong>Co-Creation:</strong> Through work, humans participate in God's ongoing creative activity</div>
+                
+                <div class="bullet-point">• <strong>Personal Development:</strong> Work contributes to human fulfillment and self-realization</div>
+                
+                <div class="bullet-point">• <strong>Social Dimension:</strong> Work builds community and serves the common good</div>
+                
+                <div class="bullet-point">• <strong>Universal Dignity:</strong> All forms of honest work have dignity, not just intellectual or prestigious occupations</div>
+                
+                <div class="quote">"Human activity, to be sure, takes its significance from its relationship to man. Just as it proceeds from man, so it is ordered toward man. For when a man works he not only alters things and society, he develops himself as well. He learns much, he cultivates his resources, he goes outside of himself and beyond himself."</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="workTheologyChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 22 of 55</div>
+    </div>
+    
+    <script>
+        // Chart showing theological understanding of work through history
+        const ctx = document.getElementById('workTheologyChart').getContext('2d');
+        
+        // Create a timeline chart
+        const workTheologyChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [
+                    'Creation',
+                    'Fall',
+                    'Israel',
+                    'Jesus',
+                    'Early Church',
+                    'Middle Ages',
+                    'Industrial Era',
+                    'Vatican II',
+                    'Present'
+                ],
+                datasets: [
+                    {
+                        label: 'Positive View of Work',
+                        data: [90, 40, 65, 75, 60, 50, 30, 85, 80],
+                        borderColor: 'rgba(0, 51, 102, 1)',
+                        backgroundColor: 'rgba(0, 51, 102, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: 'Work as Burden/Punishment',
+                        data: [10, 80, 50, 30, 50, 60, 80, 20, 25],
+                        borderColor: 'rgba(230, 81, 0, 1)',
+                        backgroundColor: 'rgba(230, 81, 0, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Emphasis in Theological Understanding'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Historical Periods'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Theological Understanding of Work Through History',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.dataset.label || '';
+                                const value = context.raw || 0;
+                                return label + ': ' + value + '% emphasis';
+                            }
+                        }
+                    }
+                },
+                maintainAspectRatio: false,
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

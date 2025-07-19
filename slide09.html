@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Modern World in Transition</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">The Modern World in Transition</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>New Historical Stage:</strong> "The human race is involved in a new stage of history"</div>
+                
+                <div class="bullet-point">• <strong>Rapid Change:</strong> "Profound and rapid changes are spreading by degrees around the whole world"</div>
+                
+                <div class="bullet-point">• <strong>Human Agency:</strong> Changes "triggered by the intelligence and creative energies of man"</div>
+                
+                <div class="bullet-point">• <strong>Reflexive Impact:</strong> These changes "recoil upon him, upon his decisions and desires, both individual and collective"</div>
+                
+                <div class="bullet-point">• <strong>Religious Implications:</strong> "A true cultural and social transformation, one which has repercussions on man's religious life as well"</div>
+                
+                <div class="quote">"As happens in any crisis of growth, this transformation has brought serious difficulties in its wake. Thus while man extends his power in every direction, he does not always succeed in subjecting it to his own welfare."</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="flowChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 9 of 55</div>
+    </div>
+    
+    <script>
+        // Create a custom chart to represent the cycle of technological advancement
+        const ctx = document.getElementById('flowChart').getContext('2d');
+        
+        // Clear the canvas and draw a custom flowchart
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        
+        // Set styles
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#003366';
+        ctx.fillStyle = '#e6f0ff';
+        ctx.font = '14px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        // Draw boxes and arrows for the cycle
+        function drawBox(x, y, width, height, text) {
+            // Draw rounded rectangle
+            ctx.beginPath();
+            ctx.moveTo(x + 10, y);
+            ctx.lineTo(x + width - 10, y);
+            ctx.quadraticCurveTo(x + width, y, x + width, y + 10);
+            ctx.lineTo(x + width, y + height - 10);
+            ctx.quadraticCurveTo(x + width, y + height, x + width - 10, y + height);
+            ctx.lineTo(x + 10, y + height);
+            ctx.quadraticCurveTo(x, y + height, x, y + height - 10);
+            ctx.lineTo(x, y + 10);
+            ctx.quadraticCurveTo(x, y, x + 10, y);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            
+            // Draw text (with line breaks if needed)
+            const lines = text.split('\n');
+            const lineHeight = 18;
+            const startY = y + height/2 - (lines.length - 1) * lineHeight/2;
+            
+            lines.forEach((line, index) => {
+                ctx.fillStyle = '#003366';
+                ctx.fillText(line, x + width/2, startY + index * lineHeight);
+            });
+        }
+        
+        function drawArrow(fromX, fromY, toX, toY) {
+            // Draw line
+            ctx.beginPath();
+            ctx.moveTo(fromX, fromY);
+            ctx.lineTo(toX, toY);
+            ctx.stroke();
+            
+            // Draw arrowhead
+            const angle = Math.atan2(toY - fromY, toX - fromX);
+            const size = 10;
+            
+            ctx.beginPath();
+            ctx.moveTo(toX, toY);
+            ctx.lineTo(toX - size * Math.cos(angle - Math.PI/6), toY - size * Math.sin(angle - Math.PI/6));
+            ctx.lineTo(toX - size * Math.cos(angle + Math.PI/6), toY - size * Math.sin(angle + Math.PI/6));
+            ctx.closePath();
+            ctx.fillStyle = '#003366';
+            ctx.fill();
+        }
+        
+        // Draw the cycle of technological advancement
+        const boxWidth = 150;
+        const boxHeight = 80;
+        const centerX = ctx.canvas.width / 2;
+        const centerY = ctx.canvas.height / 2;
+        const radius = 150;
+        
+        // Calculate positions for 5 boxes in a circle
+        const positions = [];
+        for (let i = 0; i < 5; i++) {
+            const angle = (i * 2 * Math.PI / 5) - Math.PI/2; // Start from top
+            positions.push({
+                x: centerX + radius * Math.cos(angle) - boxWidth/2,
+                y: centerY + radius * Math.sin(angle) - boxHeight/2,
+                centerX: centerX + radius * Math.cos(angle),
+                centerY: centerY + radius * Math.sin(angle)
+            });
+        }
+        
+        // Draw boxes
+        drawBox(positions[0].x, positions[0].y, boxWidth, boxHeight, 'Scientific\nDiscovery');
+        drawBox(positions[1].x, positions[1].y, boxWidth, boxHeight, 'Technological\nInnovation');
+        drawBox(positions[2].x, positions[2].y, boxWidth, boxHeight, 'Social\nTransformation');
+        drawBox(positions[3].x, positions[3].y, boxWidth, boxHeight, 'Cultural\nChange');
+        drawBox(positions[4].x, positions[4].y, boxWidth, boxHeight, 'New Human\nQuestions');
+        
+        // Draw arrows connecting the boxes in a cycle
+        for (let i = 0; i < 5; i++) {
+            const next = (i + 1) % 5;
+            drawArrow(
+                positions[i].centerX + (boxWidth/2) * Math.cos(i * 2 * Math.PI / 5 - Math.PI/2),
+                positions[i].centerY + (boxHeight/2) * Math.sin(i * 2 * Math.PI / 5 - Math.PI/2),
+                positions[next].centerX - (boxWidth/2) * Math.cos(next * 2 * Math.PI / 5 - Math.PI/2),
+                positions[next].centerY - (boxHeight/2) * Math.sin(next * 2 * Math.PI / 5 - Math.PI/2)
+            );
+        }
+        
+        // Add title
+        ctx.fillStyle = '#003366';
+        ctx.font = 'bold 18px Arial';
+        ctx.fillText('The Cycle of Technological Advancement', centerX, 30);
+        ctx.font = 'italic 14px Arial';
+        ctx.fillText('and its Effects on Society', centerX, 55);
+    </script>
+</body>
+</html>
+

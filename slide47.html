@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Holy Spirit in the World</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">The Holy Spirit in the World</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Active Presence:</strong> "The Holy Spirit is active in the world, guiding human history toward its fulfillment"</div>
+                
+                <div class="bullet-point">• <strong>Universal Work:</strong> The Spirit works not only in the Church but throughout creation</div>
+                
+                <div class="bullet-point">• <strong>Inspiration:</strong> Source of all that is good, true, and beautiful in human culture</div>
+                
+                <div class="bullet-point">• <strong>Discernment:</strong> Helps believers recognize the signs of the times</div>
+                
+                <div class="bullet-point">• <strong>Transformation:</strong> Renews the face of the earth and human hearts</div>
+                
+                <div class="quote">"The Spirit of the Lord fills the earth and he who sustains all things has knowledge of every voice. Hence, he guides the people of God, recalling the mystery of Christ and, for believers, penetrates all things and leads them to grasp the inner truth of the world."</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="spiritActivityChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 47 of 55</div>
+    </div>
+    
+    <script>
+        // Chart showing the activity of the Holy Spirit in the world
+        const ctx = document.getElementById('spiritActivityChart').getContext('2d');
+        
+        // Create a radar chart
+        const spiritActivityChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    'In the Church',
+                    'In Individual Hearts',
+                    'In Human Culture',
+                    'In Social Movements',
+                    'In Scientific Discovery',
+                    'In Artistic Creation',
+                    'In Interreligious Dialogue'
+                ],
+                datasets: [{
+                    label: 'Activity of the Holy Spirit',
+                    data: [95, 90, 80, 75, 70, 85, 65],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(255, 99, 132, 1)'
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'The Holy Spirit\'s Activity in Different Spheres',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const tooltips = {
+                                    'In the Church': 'Guiding the Church through teaching, sacraments, and ministry',
+                                    'In Individual Hearts': 'Personal conversion, sanctification, and spiritual gifts',
+                                    'In Human Culture': 'Inspiring truth, goodness, and beauty in cultural expressions',
+                                    'In Social Movements': 'Movements for justice, peace, and human dignity',
+                                    'In Scientific Discovery': 'Illuminating the human mind to discover truth about creation',
+                                    'In Artistic Creation': 'Inspiring creative works that elevate the human spirit',
+                                    'In Interreligious Dialogue': 'Building bridges of understanding between faith traditions'
+                                };
+                                
+                                return tooltips[context.label] + ': ' + context.raw + '%';
+                            }
+                        }
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>
+

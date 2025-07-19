@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Development</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">Cultural Development</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Human Flourishing:</strong> "Culture is essential for the full development of the human person"</div>
+                
+                <div class="bullet-point">• <strong>Broad Definition:</strong> Culture includes all that helps humans develop their gifts of body and soul</div>
+                
+                <div class="bullet-point">• <strong>Historical Dimension:</strong> Culture is transmitted through time and represents the collective wisdom of humanity</div>
+                
+                <div class="bullet-point">• <strong>Diversity:</strong> Recognition and appreciation of diverse cultural expressions</div>
+                
+                <div class="bullet-point">• <strong>Universal Access:</strong> All people have a right to participate in cultural development</div>
+                
+                <div class="quote">"Man comes to a true and full humanity only through culture, that is through the cultivation of the goods and values of nature. Wherever human life is involved, therefore, nature and culture are quite intimately connected one with the other."</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="culturalDimensionsChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 35 of 55</div>
+    </div>
+    
+    <script>
+        // Chart showing dimensions of culture according to Gaudium et Spes
+        const ctx = document.getElementById('culturalDimensionsChart').getContext('2d');
+        
+        // Create a radar chart
+        const culturalDimensionsChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    'Arts & Literature',
+                    'Science & Technology',
+                    'Social Institutions',
+                    'Education',
+                    'Religious Expression',
+                    'Moral Values',
+                    'Historical Heritage'
+                ],
+                datasets: [{
+                    label: 'Dimensions of Culture in Gaudium et Spes',
+                    data: [85, 90, 80, 95, 85, 90, 75],
+                    backgroundColor: 'rgba(0, 51, 102, 0.2)',
+                    borderColor: 'rgba(0, 51, 102, 0.8)',
+                    pointBackgroundColor: 'rgba(0, 51, 102, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(0, 51, 102, 1)'
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Dimensions of Culture in Gaudium et Spes',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const tooltips = {
+                                    'Arts & Literature': 'Creative expressions that elevate the human spirit',
+                                    'Science & Technology': 'Knowledge and tools that transform the world',
+                                    'Social Institutions': 'Structures that organize communal life',
+                                    'Education': 'Formation of the whole person',
+                                    'Religious Expression': 'Relationship with the transcendent',
+                                    'Moral Values': 'Ethical principles that guide behavior',
+                                    'Historical Heritage': 'Collective memory and traditions'
+                                };
+                                
+                                return tooltips[context.label] + ': ' + context.raw + '% emphasis';
+                            }
+                        }
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>
+

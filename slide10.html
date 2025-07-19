@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradoxes of Modern Life</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">Paradoxes of Modern Life</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Wealth amid Poverty:</strong> "Never has the human race enjoyed such an abundance of wealth, resources and economic power, and yet a huge proportion of the worlds citizens are still tormented by hunger and poverty"</div>
+                
+                <div class="bullet-point">• <strong>Freedom alongside Slavery:</strong> "Never before has man had so keen an understanding of freedom, yet at the same time new forms of social and psychological slavery make their appearance"</div>
+                
+                <div class="bullet-point">• <strong>Unity versus Division:</strong> "The world of today has a very vivid awareness of its unity... yet it is most grievously torn into opposing camps"</div>
+                
+                <div class="bullet-point">• <strong>Knowledge without Wisdom:</strong> "Man painstakingly searches for a better world, without a corresponding spiritual advancement"</div>
+                
+                <div class="quote">"Influenced by such a variety of complexities, many of our contemporaries are kept from accurately identifying permanent values and adjusting them properly to fresh discoveries."</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="paradoxChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 10 of 55</div>
+    </div>
+    
+    <script>
+        // Chart showing the paradoxes of modern life
+        const ctx = document.getElementById('paradoxChart').getContext('2d');
+        const paradoxChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Wealth', 'Freedom', 'Unity', 'Knowledge', 'Technology'],
+                datasets: [
+                    {
+                        label: 'Progress',
+                        data: [90, 85, 80, 95, 90],
+                        backgroundColor: '#003366',
+                        borderColor: '#003366',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Challenges',
+                        data: [70, 65, 75, 60, 55],
+                        backgroundColor: '#e65100',
+                        borderColor: '#e65100',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Level of Development (1960s)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Aspects of Modern Life'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'The Paradoxes of Modern Life Identified in Gaudium et Spes',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.dataset.label || '';
+                                const value = context.raw || 0;
+                                const tooltips = {
+                                    'Wealth': {
+                                        'Progress': 'Unprecedented global wealth and resources',
+                                        'Challenges': 'Persistent poverty and inequality'
+                                    },
+                                    'Freedom': {
+                                        'Progress': 'Greater understanding of human freedom',
+                                        'Challenges': 'New forms of social and psychological slavery'
+                                    },
+                                    'Unity': {
+                                        'Progress': 'Awareness of global interdependence',
+                                        'Challenges': 'Division into opposing ideological camps'
+                                    },
+                                    'Knowledge': {
+                                        'Progress': 'Explosion of scientific knowledge',
+                                        'Challenges': 'Lack of corresponding spiritual growth'
+                                    },
+                                    'Technology': {
+                                        'Progress': 'Unprecedented technological capabilities',
+                                        'Challenges': 'Inability to direct technology to human welfare'
+                                    }
+                                };
+                                
+                                return tooltips[context.label][label] + ': ' + value;
+                            }
+                        }
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>
+

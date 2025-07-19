@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Cooperation</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">International Cooperation</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Global Solidarity:</strong> "Nations are called to cooperate with one another for the good of the human family"</div>
+                
+                <div class="bullet-point">• <strong>Development:</strong> Wealthy nations have a responsibility to assist developing nations</div>
+                
+                <div class="bullet-point">• <strong>International Institutions:</strong> Support for organizations that promote peace and development</div>
+                
+                <div class="bullet-point">• <strong>Universal Common Good:</strong> Beyond national interests to the good of all humanity</div>
+                
+                <div class="bullet-point">• <strong>Respect for Nations:</strong> International cooperation must respect the legitimate sovereignty of nations</div>
+                
+                <div class="quote">"In view of the increasingly close ties of mutual dependence today between all the inhabitants and peoples of the earth, the apt pursuit and efficacious attainment of the universal common good now require of the community of nations that it organize itself in a manner suited to its present responsibilities, especially toward the many parts of the world which are still suffering from unbearable want."</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="internationalCooperationChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 41 of 55</div>
+    </div>
+    
+    <script>
+        // Chart showing areas of international cooperation
+        const ctx = document.getElementById('internationalCooperationChart').getContext('2d');
+        
+        // Create a pie chart
+        const internationalCooperationChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Economic Development',
+                    'Peace & Security',
+                    'Human Rights',
+                    'Environmental Protection',
+                    'Cultural Exchange',
+                    'Humanitarian Aid'
+                ],
+                datasets: [{
+                    data: [25, 20, 15, 15, 10, 15],
+                    backgroundColor: [
+                        'rgba(0, 51, 102, 0.8)',
+                        'rgba(0, 91, 142, 0.8)',
+                        'rgba(0, 131, 182, 0.8)',
+                        'rgba(0, 171, 222, 0.8)',
+                        'rgba(0, 211, 255, 0.8)',
+                        'rgba(100, 181, 246, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 51, 102, 1)',
+                        'rgba(0, 91, 142, 1)',
+                        'rgba(0, 131, 182, 1)',
+                        'rgba(0, 171, 222, 1)',
+                        'rgba(0, 211, 255, 1)',
+                        'rgba(100, 181, 246, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Areas of International Cooperation Emphasized in Gaudium et Spes',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const tooltips = {
+                                    'Economic Development': 'Fair trade, technology transfer, poverty reduction',
+                                    'Peace & Security': 'Conflict resolution, disarmament, peacekeeping',
+                                    'Human Rights': 'Protection of fundamental rights, religious freedom',
+                                    'Environmental Protection': 'Stewardship of creation, sustainable development',
+                                    'Cultural Exchange': 'Dialogue between cultures, educational cooperation',
+                                    'Humanitarian Aid': 'Disaster relief, refugee assistance, health initiatives'
+                                };
+                                
+                                return tooltips[context.label] + ': ' + context.raw + '%';
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>
+

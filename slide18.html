@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Human Family</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">One Human Family</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Divine Will:</strong> "God has willed that all men should form one family, and should live together in peace and harmony"</div>
+                
+                <div class="bullet-point">• <strong>Universal Brotherhood:</strong> All humans are brothers and sisters, sharing a common origin and destiny</div>
+                
+                <div class="bullet-point">• <strong>Solidarity:</strong> The bonds that unite all people in mutual responsibility</div>
+                
+                <div class="bullet-point">• <strong>Peace as Goal:</strong> Living together in harmony is God's intention for humanity</div>
+                
+                <div class="bullet-point">• <strong>Overcoming Division:</strong> Working to heal divisions caused by sin, selfishness, and injustice</div>
+                
+                <div class="quote">"One of the salient features of the modern world is the growing interdependence of men one on the other, a development promoted chiefly by modern technical advances. Nevertheless brotherly dialogue among men does not reach its perfection on the level of technical progress, but on the deeper level of interpersonal relationships."</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="biblicalFoundationsChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 18 of 55</div>
+    </div>
+    
+    <script>
+        // Chart showing biblical foundations for human unity
+        const ctx = document.getElementById('biblicalFoundationsChart').getContext('2d');
+        
+        // Create a horizontal bar chart
+        const biblicalFoundationsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Creation (Gen 1:26-27)',
+                    'Common Ancestry (Acts 17:26)',
+                    'Universal Salvation (John 3:16)',
+                    'One Body in Christ (1 Cor 12:12-13)',
+                    'New Humanity (Eph 2:14-16)',
+                    'Final Unity (Rev 7:9)'
+                ],
+                datasets: [{
+                    label: 'Biblical Foundations for Human Unity',
+                    data: [100, 90, 95, 85, 80, 75],
+                    backgroundColor: [
+                        'rgba(0, 51, 102, 0.8)',
+                        'rgba(0, 71, 122, 0.8)',
+                        'rgba(0, 91, 142, 0.8)',
+                        'rgba(0, 111, 162, 0.8)',
+                        'rgba(0, 131, 182, 0.8)',
+                        'rgba(0, 151, 202, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 51, 102, 1)',
+                        'rgba(0, 71, 122, 1)',
+                        'rgba(0, 91, 142, 1)',
+                        'rgba(0, 111, 162, 1)',
+                        'rgba(0, 131, 182, 1)',
+                        'rgba(0, 151, 202, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Emphasis in Scripture'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Biblical Foundations'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Biblical Foundations for Human Unity',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const tooltips = {
+                                    'Creation (Gen 1:26-27)': 'All humans created in God\'s image',
+                                    'Common Ancestry (Acts 17:26)': 'God made all nations from one man',
+                                    'Universal Salvation (John 3:16)': 'God\'s love extends to the whole world',
+                                    'One Body in Christ (1 Cor 12:12-13)': 'Baptized into one body regardless of background',
+                                    'New Humanity (Eph 2:14-16)': 'Christ breaks down dividing walls of hostility',
+                                    'Final Unity (Rev 7:9)': 'Vision of people from every nation before God\'s throne'
+                                };
+                                
+                                return tooltips[context.label] + ': ' + context.raw + '%';
+                            }
+                        }
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>
+

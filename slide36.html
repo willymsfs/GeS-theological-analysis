@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faith and Culture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .diagram-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .diagram {
+            border: 2px solid #003366;
+            border-radius: 10px;
+            padding: 20px;
+            height: 400px;
+        }
+        .diagram-title {
+            text-align: center;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .models-container {
+            display: flex;
+            flex-direction: column;
+            height: 350px;
+        }
+        .model {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .model-title {
+            width: 30%;
+            font-weight: bold;
+            color: #003366;
+            text-align: right;
+            padding-right: 15px;
+        }
+        .model-diagram {
+            width: 30%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .model-description {
+            width: 40%;
+            font-size: 14px;
+            padding-left: 15px;
+        }
+        .circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            margin: 0 5px;
+        }
+        .faith-circle {
+            background-color: #003366;
+        }
+        .culture-circle {
+            background-color: #00b4d8;
+        }
+        .overlap {
+            position: relative;
+        }
+        .overlap .faith-circle {
+            position: absolute;
+            left: 0;
+            z-index: 1;
+        }
+        .overlap .culture-circle {
+            position: absolute;
+            left: 25px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">Faith and Culture</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Mutual Relationship:</strong> "Faith and culture are not opposed, but are called to enrich each other"</div>
+                
+                <div class="bullet-point">• <strong>Incarnational Principle:</strong> Just as Christ became incarnate in a specific culture, faith must be incarnated in every culture</div>
+                
+                <div class="bullet-point">• <strong>Cultural Diversity:</strong> The Gospel can be expressed through diverse cultural forms</div>
+                
+                <div class="bullet-point">• <strong>Critical Dialogue:</strong> Faith both affirms cultural values and challenges cultural elements contrary to human dignity</div>
+                
+                <div class="bullet-point">• <strong>Evangelization of Culture:</strong> Faith seeks to transform culture from within</div>
+                
+                <div class="quote">"The good news of Christ constantly renews the life and culture of fallen man, it combats and removes the errors and evils resulting from the permanent allurement of sin. It never ceases to purify and elevate the morality of peoples. By riches coming from above, it makes fruitful, as it were from within, the spiritual qualities and traditions of every people and of every age."</div>
+            </div>
+            
+            <div class="diagram-content">
+                <div class="diagram">
+                    <div class="diagram-title">Models of Faith-Culture Relationship</div>
+                    
+                    <div class="models-container">
+                        <div class="model">
+                            <div class="model-title">Opposition</div>
+                            <div class="model-diagram">
+                                <div class="circle faith-circle">F</div>
+                                <div style="margin: 0 10px;">vs</div>
+                                <div class="circle culture-circle">C</div>
+                            </div>
+                            <div class="model-description">Faith and culture seen as inherently opposed; Christians must reject culture</div>
+                        </div>
+                        
+                        <div class="model">
+                            <div class="model-title">Accommodation</div>
+                            <div class="model-diagram">
+                                <div class="circle faith-circle" style="opacity: 0.5;">F</div>
+                                <div class="circle culture-circle">C</div>
+                            </div>
+                            <div class="model-description">Faith adapts to culture without challenging it; risks losing distinctive identity</div>
+                        </div>
+                        
+                        <div class="model">
+                            <div class="model-title">Parallel Existence</div>
+                            <div class="model-diagram">
+                                <div class="circle faith-circle">F</div>
+                                <div style="margin: 0 20px;">||</div>
+                                <div class="circle culture-circle">C</div>
+                            </div>
+                            <div class="model-description">Faith and culture exist side by side without meaningful interaction</div>
+                        </div>
+                        
+                        <div class="model">
+                            <div class="model-title">Critical Dialogue</div>
+                            <div class="model-diagram overlap">
+                                <div class="circle faith-circle">F</div>
+                                <div class="circle culture-circle">C</div>
+                            </div>
+                            <div class="model-description">Faith and culture in dynamic interaction; mutual enrichment with critical discernment</div>
+                        </div>
+                        
+                        <div class="model">
+                            <div class="model-title">Inculturation</div>
+                            <div class="model-diagram">
+                                <div class="circle faith-circle">F</div>
+                                <div style="margin: 0 10px;">→</div>
+                                <div class="circle culture-circle">C</div>
+                                <div style="margin: 0 10px;">→</div>
+                                <div class="circle" style="background-color: #800080;">F+C</div>
+                            </div>
+                            <div class="model-description">Faith becomes incarnate in culture, transforming it from within</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 36 of 55</div>
+    </div>
+</body>
+</html>
+

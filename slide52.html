@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contemporary Relevance</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .quote {
+            background-color: #f0f7ff;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">Contemporary Relevance</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Enduring Method:</strong> "The approach of reading the signs of the times remains essential for the Church today"</div>
+                
+                <div class="bullet-point">• <strong>Digital Age:</strong> Principles apply to new technologies and digital culture</div>
+                
+                <div class="bullet-point">• <strong>Globalization:</strong> Vision of global solidarity increasingly important</div>
+                
+                <div class="bullet-point">• <strong>Ecological Crisis:</strong> Framework for addressing environmental challenges</div>
+                
+                <div class="bullet-point">• <strong>Polarization:</strong> Model for dialogue in a divided world</div>
+                
+                <div class="quote">"The Church has always had the duty of scrutinizing the signs of the times and of interpreting them in the light of the Gospel. Thus, in language intelligible to each generation, she can respond to the perennial questions which men ask about this present life and the life to come, and about the relationship of the one to the other."</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="relevanceChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 52 of 55</div>
+    </div>
+    
+    <script>
+        // Chart showing contemporary relevance of Gaudium et Spes
+        const ctx = document.getElementById('relevanceChart').getContext('2d');
+        
+        // Create a radar chart
+        const relevanceChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    'Digital Ethics',
+                    'Environmental Crisis',
+                    'Global Inequality',
+                    'Religious Pluralism',
+                    'Bioethical Questions',
+                    'Political Polarization',
+                    'Cultural Fragmentation'
+                ],
+                datasets: [{
+                    label: 'Relevance of Gaudium et Spes Principles',
+                    data: [85, 90, 95, 80, 85, 90, 85],
+                    backgroundColor: 'rgba(0, 51, 102, 0.2)',
+                    borderColor: 'rgba(0, 51, 102, 0.8)',
+                    pointBackgroundColor: 'rgba(0, 51, 102, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(0, 51, 102, 1)'
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Relevance of Gaudium et Spes to Contemporary Issues',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const tooltips = {
+                                    'Digital Ethics': 'Human dignity in virtual spaces; digital divide; AI ethics',
+                                    'Environmental Crisis': 'Stewardship of creation; integral ecology; climate justice',
+                                    'Global Inequality': 'Economic justice; development; solidarity with the poor',
+                                    'Religious Pluralism': 'Interreligious dialogue; religious freedom; common values',
+                                    'Bioethical Questions': 'Human dignity; beginning and end of life; genetic technologies',
+                                    'Political Polarization': 'Common good; dialogue across differences; truth in love',
+                                    'Cultural Fragmentation': 'Unity in diversity; inculturation; shared humanity'
+                                };
+                                
+                                return tooltips[context.label] + ': ' + context.raw + '%';
+                            }
+                        }
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>
+

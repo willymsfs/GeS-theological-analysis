@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Context of Vatican II</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 900px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .title {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-content {
+            width: 45%;
+        }
+        .chart-content {
+            width: 50%;
+        }
+        .section-title {
+            color: #003366;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .bullet-point {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .chart-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1 class="title">Historical Context of Vatican II</h1>
+        
+        <div class="content">
+            <div class="text-content">
+                <div class="bullet-point">• <strong>Timeline:</strong> Second Vatican Council (1962-1965)</div>
+                
+                <div class="bullet-point">• <strong>Pope John XXIII's Vision:</strong> "Aggiornamento" - updating the Church to address modern world</div>
+                
+                <div class="bullet-point">• <strong>Gaudium et Spes:</strong> Final document of the Council, promulgated by Pope Paul VI on December 7, 1965</div>
+                
+                <div class="bullet-point">• <strong>Significance:</strong> First time Church addressed all humanity, not just Catholics</div>
+                
+                <div class="bullet-point">• <strong>Example:</strong> Previous encyclicals addressed "Venerable Brethren" while Gaudium et Spes addresses "the whole human family"</div>
+            </div>
+            
+            <div class="chart-content">
+                <div class="chart-container">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Slide 2 of 55</div>
+    </div>
+    
+    <script>
+        // Timeline chart for Vatican II
+        const ctx = document.getElementById('timelineChart').getContext('2d');
+        const timelineChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Announcement (1959)', 'Preparation (1960-62)', 'Session 1 (1962)', 'Session 2 (1963)', 'Session 3 (1964)', 'Session 4 (1965)', 'Gaudium et Spes (Dec 7, 1965)'],
+                datasets: [{
+                    label: 'Vatican II Timeline',
+                    data: [1, 2, 1, 1, 1, 1, 1.5],
+                    backgroundColor: [
+                        '#8da9c4',
+                        '#8da9c4',
+                        '#8da9c4',
+                        '#8da9c4',
+                        '#8da9c4',
+                        '#8da9c4',
+                        '#134074'
+                    ],
+                    borderColor: [
+                        '#134074',
+                        '#134074',
+                        '#134074',
+                        '#134074',
+                        '#134074',
+                        '#134074',
+                        '#134074'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        display: false
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Vatican II Timeline',
+                        font: {
+                            size: 18
+                        }
+                    }
+                },
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>
+
